@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Gp Bootstrap Template</title>
+  <title>FitFinity Gym, Pune</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -25,7 +26,7 @@
   <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="static/assets/css/main.css" rel="stylesheet">
+  <link href="static/assets/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -37,17 +38,17 @@
       <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="static/assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">GP</h1>
+        <h1 class="sitename">FitFinity</h1>
         <span>.</span>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home<br></a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
+          <li><a href="/hero" class="active">Home<br></a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/contact">Contact</a></li>
           <li class="dropdown"><a href="#"><span>Memberships</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Enroll</a></li>
@@ -57,12 +58,20 @@
               <li><a href="#">View Profile</a></li>
             </ul>
           </li>
-          <li><a href="/signin">Sign In</a></li>
+          <li><a href="/achievements">Gym Awards</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a href="/achievements" class="btn-getstarted">Gym Awards</a>
+      {% if not request.user.is_authenticated %}
+
+      <a class="btn-getstarted" href="/signup">Sign In</a>
+
+      {% else %}
+
+      <a class="btn-getstarted" href="/logout">Logout</a>
+
+      {% endif %}
 
     </div>
   </header>
@@ -78,8 +87,8 @@
 
         <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
           <div class="col-xl-6 col-lg-8">
-            <h2>Powerful Digital Solutions With GP<span>.</span></h2>
-            <p>We are team of talented digital marketers</p>
+            <h2>Start today, Stop Never!<span>.</span></h2>
+            <p>Start your fitness journey now!</p>
           </div>
         </div>
 
@@ -853,7 +862,7 @@
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6 footer-about">
             <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">GP</span>
+              <span class="sitename">FitFinity</span>
             </a>
             <div class="footer-contact pt-3">
               <p>A108 Adam Street</p>
