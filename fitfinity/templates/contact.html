@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}
-SignUp
+Contact Us
 {% endblock title %}
 {% block head %}
 
-<h1>Sign Up Here</h1>
+<h1>Contact Us</h1>
 
 <div class="container mt-2">
     <div class="row">
@@ -18,38 +18,43 @@ SignUp
     </div>
     {% endfor %}
     
-    <form action="/signup" method="post">{% csrf_token %}
+
+    {% comment %}  Contact Us code{% endcomment %}
+    <form action="/contact" method="post">{% csrf_token %}
+
         <div class="form-group">
-            <input type="number" class="form-control mb-2" name="usernumber" placeholder="Phone Number" required>
-        </div>
-        
-        <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Email" required>
-        </div>
-    
-        <div class="form-group">
-            <input type="password" class="form-control mt-2" name="pass1" placeholder="Password" required>
+            <input type="text" class="form-control mb-2" name="fullname" placeholder="Enter your name" required>
         </div>
     
         <div class="form-group">
-            <input type="password" class="form-control mt-2" name="pass2" placeholder="Confirm Password" required>
+            <input type="email" class="form-control mt-2" name="email" placeholder="Enter your EMail" required>
         </div>
+    
+        <div class="form-group">
+            <input type="number" class="form-control mb-2" name="num" placeholder="Enter your phone number" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="desc" class="text-warning">How can we help you?</label>
+            <textarea class="form-control mt-2" name="desc" cols="5" rows="3" id="desc"></textarea>
+        </div>
+
         <br>
-    
+        
         <div class="d-grid gap-2">
-            <button class="btn btn-light" type="submit">Signup</button>
+            <button class="btn btn-warning" type="submit">Submit</button>
         </div>
     
     </form>
 
-    <br><a href="/login">Already User?</a>
-    
+
+       
     </div>
     
     <div class="col-md-3"></div>
     
     </div>
-        
+    
     </div>
 
 {% endblock head %}
