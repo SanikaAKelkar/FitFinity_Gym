@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}
+Profile
+{% endblock title %}
+
+{% block body %}
+
+<div class="container-fluid mt-4">
+  <div class="col-xl-8">
+    <!-- Account details card-->
+    <div class="card mb-4">
+      <div class="card-header">Your Details</div>
+        <div class="card-body">
+          
+            <form action="/profile">
+              <!-- Form Group (username)-->
+              {% for post in posts %}
+              <div class="mb-3">
+                <label class="small mb-1">Full Name</label>
+                <input class="form-control mb-2" id="inputUsername" type="text" value="{{post.FullName}}" readonly required>
+              </div>
+
+              <!-- Form Group (email address) and gender -->                
+              <div class="row gx-3 mb-3">
+                <div class="mb-3">
+                  <label class="small mb-1">Email address</label>
+                  <input class="form-control mb-2" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="{{post.Email}}">
+                </div>
+
+                <div class="mb-3">
+                  <label class="small mb-1" for="inputEmailAddress">Gender</label>
+                  <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="{{post.Gender}}">
+                </div>
+              </div>
+
+              <!-- Form Row-->
+              <div class="row gx-3 mb-3">
+                <!-- Phone number | DOB-->
+                <div class="col-md-6">
+                  <label class="small mb-1" for="inputPhone">Phone number</label>
+                  <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="{{post.PhoneNumber}}">
+                </div>
+                <!-- DOB (birthday)-->
+                <div class="col-md-6">
+                  <label class="small mb-1" for="inputBirthday">Date of Birth</label>
+                  <input class="form-control" id="inputBirthday" type="text" name="birthday" value="{{post.DOB}}">
+                </div>
+              </div>
+
+
+              <div class="row gx-3 mb-3">
+                <label class="small mb-1" for="inputPhone">Address</label>
+                <input class="form-control" type="text" placeholder="Address" value="{{post.Address}}">
+              </div>
+
+              
+              <div class="row gx-3 mb-3">
+                            <!-- Membership -->
+                <div class="col-md-6">
+                  <label class="small mb-1" for="inputPhone">Membership Plan</label>
+                  <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="{{post.SelectMembershipPlan}}">
+                </div>
+                            <!-- Trainer)-->
+                <div class="col-md-6">
+                  <label class="small mb-1" for="inputBirthday">Trainer</label>
+                  <input class="form-control" id="inputBirthday" type="text" name="birthday" value="{{post.SelectTrainer}}">
+                </div>
+              </div>
+
+          
+              <div class="row gx-3 mb-3">
+                            <!-- payment -->
+                <div class="col-md-6">
+                  <label class="small mb-1" for="inputPhone">Payment Status</label>
+                  <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="{{post.paymentStatus}}">
+                </div>
+                            <!-- Trainer)-->
+                <div class="col-md-6">
+                  <label class="small mb-1" for="inputBirthday">Trainer</label>
+                  <input class="form-control" id="inputBirthday" type="text" name="birthday" value="{{post.trainer}}">
+                </div>
+              </div>
+              {% endfor %} 
+            </form>
+           
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock body %}
