@@ -2,15 +2,15 @@
 {% block title %}
 Gallery
 {% endblock title %}
-{% block body %}
+{% block head %}
 
-<div class="container-mt-2 gallery-container" style="background-color: black;">
+<div class="container-fluid gallery-container" style="background-color: black;">
     <center><h1 style="color: white;">FitFinity Gallery</h1></center>
     <div class="row">
         {% for post in posts %}
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="card" style="background-color: black;">
-                <img src="{{post.img.url}}" class="card-img-top" alt="...">
+                <img src="{{post.img.url}}" class="card-img-top img-responsive image-fluid" alt="...">
                 <div class="card-body" style="color: white;">
                     <h5 class="card-title">{{post.title}}</h5>
                     <p class="card-text">Uploaded On: {{post.timeStamp}} </p>
@@ -24,4 +24,4 @@ Gallery
     </div>
 </div>
 
-{% endblock body %}
+{% endblock head %}

@@ -49,7 +49,7 @@
                 <select  class="form-control mt-2" id="trainer" name="trainer"  required>
                     <option selected> Select Trainer </option>
                         {% for  p in SelectTrainer %}
-                            <option value="{{p.name}}">{{p.name}}</option>
+                            <option value="{{p.name}}">{{p.name}}</option required>
                         {% endfor %}
                 </select>
             </div>
